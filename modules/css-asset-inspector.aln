@@ -1,0 +1,76 @@
+module: css-asset-inspector
+version: "1.0.0"
+author: "Doctor0Evil x Perplexity"
+repository: "aln-superintelligence-optimize.git"
+destination-path: /modules/css-asset-inspector.aln
+
+inputs:
+  - session: "browser"
+  - user: "{user-id}"
+
+triggers:
+  - onPageLoad:
+      steps:
+        - scan.dom()
+        - detect.cssStyles()
+        - log.assets(session)
+        - notify.user("CSS assets detected. Use chat or click to explore details or apply updates.")
+
+  - onMouseHover:
+      params: [element]
+      steps:
+        - highlight.css(element)
+        - display.assetInfo(element)
+        - notify.user("Hovered over CSS asset. Click for full details or recommended actions.")
+
+  - onSessionUpdate:
+      steps:
+        - check.newAssets()
+        - notify.user("Session assets updated. Review or apply changes with one click.")
+
+commands:
+  - fetchAllAssets:
+      description: "List all CSS and asset references in this session"
+      params: []
+      steps:
+        - scan.dom()
+        - collect.assets()
+        - display.list()
+
+  - applyUpdate:
+      description: "Apply latest style/asset update (must be approved in-chat)"
+      params: [update-id]
+      steps:
+        - fetch.update(update-id)
+        - apply.styles()
+        - notify.success("Update applied. All changes logged and reversible.")
+
+  - suggestImprovements:
+      description: "Scan CSS/assets and suggest accessibility or performance improvements"
+      params: []
+      steps:
+        - analyze.assets()
+        - display.suggestions()
+        - notify.user("Accessibility and performance suggestions ready.")
+
+  - rollbackLastUpdate:
+      description: "Undo most recent update"
+      params: []
+      steps:
+        - revert.lastUpdate()
+        - notify.success("Last update rolled back. All reverted assets restored.")
+
+outputs:
+  - view: "Chat-driven, click-to-apply asset details and overlays"
+  - policy: "Actions always explained and reversible; never auto-applied"
+  - compliance: "Full audit, encryption, privacy-by-default"
+
+compliance:
+  - strict: true
+  - explainable: true
+  - realtime: true
+  - reversible: true
+  - privacy: true
+  - log: true
+  - public-audit: true
+  - ultra: true

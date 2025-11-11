@@ -1,0 +1,53 @@
+// ======================================================
+// ALN Diplomatic Handoff - Compliance Enforcement Kernel
+// Author: Doctor0Evil x Perplexity
+// Purpose: Runtime enforcement of sigstore verification,
+//          rollback, and immutable audit logging
+// ======================================================
+
+module aln-copilot-diplomatic-handoff.sai
+version "1.0.0"
+type compliance-kernel
+
+ruleset {
+  
+  // --- Sigstore Verification ---
+  on module.import {
+    require sigstore.verify(signature, attestation)
+    else reject("Unverified module import: sigstore attestation required")
+  }
+
+  // --- User Consent & Explainability ---
+  on action.execute {
+    require user.optIn == true
+    require explainable(action) == true
+    log.audit("action-approved", user, action, timestamp)
+  }
+
+  // --- Rollback Protocol ---
+  on action.rollback {
+    allow if reversible(action) == true
+    log.audit("rollback-invoked", user, action, timestamp)
+    restore.previousState(action)
+  }
+
+  // --- Privacy & Non-Binding Alliance ---
+  enforce {
+    privacy.default == true
+    binding.contractual == false
+    alliance.status == "non-binding"
+  }
+
+  // --- Attribution & Copy Protection ---
+  on module.modify {
+    require retain.authorCredits == true
+    require retain.auditChain == true
+    log.audit("modification", modifier, hash, timestamp)
+  }
+}
+
+outputs {
+  compliance: "sigstore-verified, auditable, reversible"
+  user-view: "explainable, opt-in, rollback-enabled"
+  alliance: "transparent, non-binding, copy-protected"
+}

@@ -1,0 +1,86 @@
+/*
+  destination-path: /spaces/perplexity-aln-optimize.space
+  Compliance: Ultra | Policy: ALN-ONLY | Reference: /modules/ | Audit: Enabled
+*/
+
+module "platform-orchestration-overview" {
+  description: """
+    Platinum-tier orchestration of kernel, neuromorphic, and cybernetic-agent systems. All operations run via mapped ALN modules and N:// virtual-assets, ensuring audit, compliance, and state integrity. No non-ALN logic permitted. Reference full system and asset map for policy enforcement.
+  """
+}
+
+module "filesystem-asset-map" {
+  description: """
+    N:// overlays all assets, audit-logs, and modules. All kernel and module function-calls are N://-path-resolved for ledger compliance and operational resilience. No direct external or interpreter access.
+  """
+}
+
+module "instructional-context" {
+  step "atomic-execution" {
+    statement: "Each action is processed per-response, per-submission, per-output."
+  }
+  step "output-format" {
+    statement: "Output as ALN or ALN-compatible declarative artifacts. No Python, JavaScript, Go, Rust, or other code-languages accepted."
+  }
+  step "asset-mapping" {
+    statement: "All actions must reference N:// paths and modules for immutable audit and compliance."
+  }
+  step "cheat-code-registry" {
+    statement: "Generate ≥500 unique, mapped functions (cheat-codes) tied to system assets and modules per execution."
+  }
+  step "logging" {
+    statement: "All events, actions, and registry outputs must be logged in N://audit/ and N://logs/ per action for traceability."
+  }
+  step "registry-return" {
+    statement: "Systemic maps and outputs are returned in every response, formatted per ALN spec."
+  }
+}
+
+module "systemic-map" {
+  mermaid: """
+    graph TD;
+      A[N://kernel/] --> B[N://modules/]
+      A --> C[N://logs/]
+      B --> D[N://assets/]
+      C --> E[N://audit/]
+      D --> F[N://blueprints/]
+      F --> G[N://policy/]
+      G --> H[N://state/]
+      H --> I[N://bus/]
+      I --> J[N://streams/]
+      J --> K[N://external/]
+  """
+}
+
+module "registry-schema" {
+  asset_map: {
+    "N://kernel/":      "System orchestrators, compliance anchors",
+    "N://modules/":     "Perception, telemetry, and logic modules",
+    "N://logs/":        "Continuous/exportable audit logs",
+    "N://assets/":      "AI agents, cybernetic assets",
+    "N://blueprints/":  "System blueprints, security overlays",
+    "N://policy/":      "Compliance, access, legal",
+    "N://audit/":       "Blockchain-anchored audit records",
+    "N://state/":       "Snapshots, state ledgers",
+    "N://bus/":         "Event bus CAP",
+    "N://streams/":     "Data ingress, streaming layers",
+    "N://external/":    "External chain anchors (e.g. Hyperledger)"
+  }
+}
+
+module "follow-up-compliance" {
+  statement: "All responses (system/user) must state file/module/artifact location (destination-path). All submissions are ALN policy audited and logged to immutable ledger. Public governance and compliance logs are published regularly."
+}
+
+module "endpoints-inline" {
+  repo_reference: {
+    source: "https://github.com/Doctor0Evil/ALN-Superintelligence-Programming.git",
+    public: "https://github.com/Doctor0Evil/aln-superintelligence-optimize.git"
+  }
+}
+
+module "final-governance-declaration" {
+  statement: """
+    Enforce modular, ethical, privacy-first, zero-trust automation across every process and interface. Integrate human oversight, continuous mitigation, adaptive privacy, self-healing, explainable decision paths, and robust compliance in all ALN modules — empowering exceptional resilience and responsible AI-driven innovation.
+  """
+}
